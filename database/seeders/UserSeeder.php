@@ -17,12 +17,21 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+      // DB::table('users')->insert([
+      //   'name' => 'Admin 1',
+      //   'phone' => '081111221122',
+      //   'email' => 'admin@supplier.com',
+      //   'email_verified_at' =>\Carbon\Carbon::now(),
+      //   'password' => Hash::make('admin'),
+      //   'created_at' =>\Carbon\Carbon::now(),
+      //   'updated_at' =>\Carbon\Carbon::now(),
+      // ]);
       DB::table('users')->insert([
-        'name' => 'Admin 1',
-        'phone' => '081111221122',
-        'email' => 'admin@supplier.com',
+        'name' => 'Sekolah Swasta Jakarta 9',
+        'phone' => '1239898819',
+        'email' => 'swasta9@sekolah.com',
         'email_verified_at' =>\Carbon\Carbon::now(),
-        'password' => Hash::make('admin'),
+        'password' => Hash::make('sekolah'),
         'created_at' =>\Carbon\Carbon::now(),
         'updated_at' =>\Carbon\Carbon::now(),
       ]);

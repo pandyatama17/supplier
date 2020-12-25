@@ -149,6 +149,7 @@
     </div>
     <!-- /.login-card-body -->
   </div>
+  <a href="/register">Register</a>
 </div>
 <!-- /.login-box -->
 

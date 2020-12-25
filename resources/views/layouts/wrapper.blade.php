@@ -3,7 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Supplier | Admin</title>
+  <title>Supplier | @if (Auth::user()->isAdmin)
+    Admin
+  @else
+    {{Auth::user()->name}}
+  @endif</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,10 +24,12 @@
   {{-- <link rel="stylesheet" href="{{asset('alt/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}"> --}}
   {{-- <link rel="stylesheet" href="{{asset('icheck/skins/all.css')}}"> --}}
   <link rel="stylesheet" href="{{asset('alt/plugins/sweetalert2/sweetalert2.css')}}">
+  <link rel="stylesheet" href="{{asset('/alt/plugins/toastr/toastr.min.css')}}">
   <!-- AdminLTE -->
   <link rel="stylesheet" href="{{asset('alt/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <style media="screen">
   #ftco-loader {
     position: fixed;
@@ -111,7 +117,9 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    @yield('content')
+    <section class="content">
+      @yield('content')
+    </section>
 
   </div>
   <!-- /.content-wrapper -->
@@ -139,7 +147,6 @@
   </svg>
 </div> --}}
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 {{-- <script src="{{asset('alt/plugins/jquery/jquery.min.js')}}"></script> --}}
 <!-- Bootstrap 4 -->
 <script src="{{asset('alt/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -153,6 +160,7 @@
 {{-- <script src="{{asset('icheck/icheck.js')}}"></script> --}}
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script> --}}
 <script src="{{asset('/alt/plugins/sweetalert2/sweetalert2.all.js')}}" charset="utf-8"></script>
+<script src="{{asset('/alt/plugins/toastr/toastr.min.js')}}"></script>
 {{-- <script src="{{asset('/jquery.form.min.js')}}" charset="utf-8"></script> --}}
 <!-- AdminLTE App -->
 <script src="{{asset('alt/dist/js/adminlte.min.js')}}"></script>
@@ -160,5 +168,6 @@
 {{-- <script src="{{asset('alt/dist/js/demo.js')}}"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"></script>
+@include('layouts.js')
 </body>
 </html>
