@@ -131,6 +131,12 @@
           </li>
         @else
           <li class="nav-item">
+            <a href="/client/catalogue" class="nav-link">
+              <i class="fa fa-tags nav-icon text-warning"></i>
+              <p>Katalog</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="/client/order" class="nav-link">
               <i class="fa fa-shopping-cart nav-icon text-primary"></i>
               <p>Pesan Barang</p>
@@ -142,12 +148,12 @@
               <p>Histori Pesanan</p>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="/client/order" class="nav-link">
               <i class="fa fa-shopping-cart nav-icon text-warning"></i>
               <p>Akun</p>
             </a>
-          </li>
+          </li> --}}
         @endif
       </ul>
     </nav>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,14 @@ use App\Http\Controllers\MainController;
 Route::group(['middleware'=>'auth'], function()
 {
   Route::get('/', function () {
-      return view('home');
+      // return view('home');
+      if (Auth::user()->isAdmin)
+      {
+        return redirect()->route('show_items');
+      }
+      else {
+        return redirect()->route('show_catalogue');
+      }
   });
   Route::get('/admin/items',[MainController::class,'showItems'])->name('show_items');
   Route::get('/admin/items/add',[MainController::class,'addItem'])->name('add_item');
@@ -38,6 +46,7 @@ Route::group(['middleware'=>'auth'], function()
   Route::post('/order/submit',[MainController::class,'clientOrderSubmit'])->name('client_order_submit');
   Route::get('/client/invoice&order={id}',[MainController::class,'clientOrderInvoice'])->name('client_order_invoice');
   Route::get('/client/orders&user={id}',[MainController::class,'clientOrderList'])->name('client_order_list');
+  Route::get('/client/catalogue',[MainController::class,'showCatalogue'])->name('show_catalogue');
 
 });
 

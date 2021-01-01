@@ -397,4 +397,10 @@ class MainController extends Controller
       return view('clientarea.list')
       ->with('transactions', $t);
     }
+    public function showCatalogue()
+    {
+      $i = Item::all();
+      return view('clientarea.items')
+      ->with('items', $i);
+    }
 }
